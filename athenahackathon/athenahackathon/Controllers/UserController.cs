@@ -15,16 +15,24 @@ namespace athenahackathon.Controllers
         }
 
 
-        // GET: /Account/Register
+        // GET: My Account -> Closet
         [AllowAnonymous]
         public ActionResult MyAccount()
+        {
+            string user = User.Identity.Name;
+            return View();
+        }
+
+        // GET: My Closet Pass in User Id
+        [AllowAnonymous]
+        public ActionResult MyCloset()
         {
             return View();
         }
 
-        // GET: /Account/Register
+        // GET: My Closet Pass in User Id
         [AllowAnonymous]
-        public ActionResult Mycloset()
+        public ActionResult MyOutfit()
         {
             return View();
         }
