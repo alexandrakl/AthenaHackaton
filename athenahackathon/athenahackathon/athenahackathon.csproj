@@ -290,6 +290,7 @@
     <Content Include="Views\User\MyAccount.cshtml" />
     <Content Include="Views\User\MyCloset.cshtml" />
     <Content Include="Views\User\MyOutfit.cshtml" />
+    <Content Include="Views\User\MyInvite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

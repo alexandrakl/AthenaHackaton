@@ -34,14 +34,18 @@ namespace athenahackathon.Controllers
 
             Debug.WriteLine(user);
             // get User Id for user name
-            using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString)) {
+            using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString))
+            {
                 connection.Open();
                 StringBuilder sb = new StringBuilder();
                 sb.Append("Select TOP 1 [Id] from [dbo].[AspNetUsers] where [Email]='" + user + "'");
 
-                using (SqlCommand command = new SqlCommand(sb.ToString(), connection)) {
-                    using (SqlDataReader reader = command.ExecuteReader()) {
-                        while (reader.Read()) {
+                using (SqlCommand command = new SqlCommand(sb.ToString(), connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
                             userId = reader["Id"].ToString();
                         }
                     }
@@ -116,14 +120,14 @@ namespace athenahackathon.Controllers
         public ActionResult MyCloset(string closetIdString)
         {
             string temp = "temprary string";
-            int closetId = Convert.ToInt32(closetIdString);
+            int closetId = 1;
             List<string> clothesList = new List<string>();
 
             using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString))
             {
                 connection.Open();
                 StringBuilder clothesstring = new StringBuilder();
-                clothesstring.Append("Select [ClothesId], [ClothesName] from [dbo].[Clothes] where [ClosetId]='" + closetId + "'");
+                clothesstring.Append("Select [ClothesId], [ClothesName], [ImageUrl] from [dbo].[Clothes] where [ClosetId]='" + closetId + "'");
 
                 using (SqlCommand command = new SqlCommand(clothesstring.ToString(), connection))
                 {
@@ -131,8 +135,8 @@ namespace athenahackathon.Controllers
                     {
                         while (reader.Read())
                         {
-                            //Debug.WriteLine(reader["ClothesName"].ToString());
-                            clothesList.Add(reader["ClothesName"].ToString());
+                            Debug.WriteLine(reader["ImageUrl"].ToString());
+                            clothesList.Add(reader["ImageUrl"].ToString());
                         }
 
                         clothesList.Add(temp);
@@ -141,7 +145,7 @@ namespace athenahackathon.Controllers
 
             }
 
-            ViewBag.Message = "Displaying smth in my closet";
+            ViewBag.Message = "My Shirt Closet";
             ViewBag.Clothes = clothesList;
             return View();
         }
@@ -210,17 +214,24 @@ namespace athenahackathon.Controllers
                 //}
             }
             ViewBag.Message = " Inside my outfit view";
-                ViewBag.ClothesOutfit = clothesListOutfit;
-                return View();
-            
+            ViewBag.ClothesOutfit = clothesListOutfit;
+            return View();
+
         }
 
         // GET: My Invite -> pass in outfit id and closet Id (one is always null, also receiver Id get from view of the owner user
         // get list of closetIDs and list OF Outfit Ids
         // in receiver list display lists in View of Receiver (not done)
         [AllowAnonymous]
-        public ActionResult MyInvite(int closetId, int outfitId, int receiverId)
+        public ActionResult MyInvite()
         {
+            string receiverName = User.Identity.Name;
+            string receiverId = string.Empty;
+
+
+
+
+            Debug.WriteLine(receiverName);
 
             List<string> closetIdsList = new List<string>();
             List<string> outfitIdsList = new List<string>();
@@ -228,47 +239,52 @@ namespace athenahackathon.Controllers
             using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString))
             {
                 connection.Open();
-                StringBuilder invitestring = new StringBuilder();
-                if (closetId == 0) {
-                    invitestring.Append("Select [OutfitId] from [dbo].[Invite] where [ReceiverId]='" + receiverId + "'");
-                    using (SqlCommand command = new SqlCommand(invitestring.ToString(), connection))
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Select TOP 1 [Id] from [dbo].[AspNetUsers] where [Email]='" + receiverName + "'");
+
+                using (SqlCommand command = new SqlCommand(sb.ToString(), connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            receiverId = reader["Id"].ToString();
+                        }
+                    }
+
+
+                }
+
+                StringBuilder invitestring = new StringBuilder();
+
+                invitestring.Append("Select [OutfitId], [ClosetId] from [dbo].[Invite] where [ReceiverId]='" + receiverId + "'");
+                using (SqlCommand command = new SqlCommand(invitestring.ToString(), connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader["ClosetId"] == null)
                             {
                                 Debug.WriteLine(reader["OutfitId"].ToString());
                                 outfitIdsList.Add(reader["OutfitId"].ToString());
                             }
-                        }
-                    }
-                }
-
-                if (outfitId == 0)
-                {
-                    invitestring.Append("Select [ClosetId] from [dbo].[Invite] where [ReceiverId]='" + receiverId + "'");
-                    using (SqlCommand command = new SqlCommand(invitestring.ToString(), connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
+                            else
                             {
                                 Debug.WriteLine(reader["ClosetId"].ToString());
                                 closetIdsList.Add(reader["ClosetId"].ToString());
                             }
+
                         }
                     }
                 }
-
             }
-
+            ViewBag.Outfits = outfitIdsList;
+            ViewBag.Closets = closetIdsList;
             return View();
         }
-
-
-        }
-
-  
+    }
 }
 
 

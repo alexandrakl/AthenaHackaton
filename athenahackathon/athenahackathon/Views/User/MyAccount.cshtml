@@ -50,26 +50,33 @@
 
 
 
+<div class="row">
+    <a href="#" class="button">Add Closet</a>
+    <a href="#" class="button">Add Outfit</a>
+</div>
+
+
+
 
 
 
 <!--<li>@@Html.ActionLink("MyCloset", "MyCloset", "User")</li>
 
-
+    
 <div id="MyClosetsIds">
-    @@using (Ajax.BeginForm("MyCloset", "User",
-                    new AjaxOptions { UpdateTargetId = "test2" }))
+    @using (Ajax.BeginForm("MyCloset", "User",
+    new AjaxOptions { UpdateTargetId = "test2" }))
     {
-        <div id="test2"></div>
-        <ol>
-            @@foreach (var std in ViewBag.ClosetIdsList)
-            {
-                <li>
+    <div id="test2"></div>
+    <ol>
+        @foreach (var std in ViewBag.ClosetIdsList)
+        {
+        <li>
 
-                    <button>@@std</button>
-                </li>
-            }
-        </ol>
+            <button>@std</button>
+        </li>
+        }
+    </ol>
     }
 </div>
 
