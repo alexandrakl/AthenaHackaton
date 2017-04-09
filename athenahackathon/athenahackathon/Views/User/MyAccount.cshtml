@@ -46,8 +46,41 @@
 </div>
 
 
+@*<div class="row">
+    <div class="small-12">
+        <h3>My Outfits</h3>
+    </div>
+    <div id="MyOutfits">
+        @using (Ajax.BeginForm("MyInvite", "User",
+                                    new AjaxOptions { UpdateTargetId = "outfittest" }))
+        {
+            <div id="outfittest">
+                @foreach (var std in ViewBag.InviteOutfits)
+                {
+                    <button>@std</button>
+                }
+            </div>
+        }
+    </div>
+</div>
 
-
+<div class="row">
+    <div class="small-12">
+        <h3>My Outfits</h3>
+    </div>
+    <div id="MyOutfits">
+        @using (Ajax.BeginForm("MyInvite", "User",
+                                        new AjaxOptions { UpdateTargetId = "outfittest" }))
+        {
+            <div id="outfittest">
+                @foreach (var std in ViewBag.InviteClosets)
+                {
+                    <button>@std</button>
+                }
+            </div>
+        }
+    </div>
+</div>*@
 
 
 <div class="row">
@@ -64,16 +97,16 @@
 
     
 <div id="MyClosetsIds">
-    @using (Ajax.BeginForm("MyCloset", "User",
+    @@using (Ajax.BeginForm("MyCloset", "User",
     new AjaxOptions { UpdateTargetId = "test2" }))
     {
     <div id="test2"></div>
     <ol>
-        @foreach (var std in ViewBag.ClosetIdsList)
+        @@foreach (var std in ViewBag.ClosetIdsList)
         {
         <li>
 
-            <button>@std</button>
+            <button>@@std</button>
         </li>
         }
     </ol>

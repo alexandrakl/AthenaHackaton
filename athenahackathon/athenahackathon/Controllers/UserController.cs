@@ -31,6 +31,8 @@ namespace athenahackathon.Controllers
             List<string> closetsList = new List<string>();
             List<int> closetIdsList = new List<int>();
             List<string> outfitsList = new List<string>();
+            List<string> closetInviteList = new List<string>();
+            List<string> outfitInviteList = new List<string>();
 
             Debug.WriteLine(user);
             // get User Id for user name
@@ -84,13 +86,50 @@ namespace athenahackathon.Controllers
                         }
                     }
                 }
+
+
+                //get outfitsInvite(userId)
+                //StringBuilder outfitInvitestring = new StringBuilder();
+                //outfitInvitestring.Append("Select [OutfitId] from [dbo].[Invite] where [ReceiverId]='" + userId + "'");
+
+                //using (SqlCommand command = new SqlCommand(outfitstring.ToString(), connection))
+                //{
+                //    using (SqlDataReader reader = command.ExecuteReader())
+                //    {
+                //        while (reader.Read())
+                //        {
+                //            outfitInviteList.Add(reader["OutfitName"].ToString());
+                //            //Debug.WriteLine(reader["OutfitName"].ToString());
+                //        }
+                //    }
+                //}
+
+                ////get outfitsInvite(userId)
+                //StringBuilder closetInvitestring = new StringBuilder();
+                //closetInvitestring.Append("Select [ClosetId] from [dbo].[Invite] where [ReceiverId]='" + userId + "'");
+
+                //using (SqlCommand command = new SqlCommand(closetInvitestring.ToString(), connection))
+                //{
+                //    using (SqlDataReader reader = command.ExecuteReader())
+                //    {
+                //        while (reader.Read())
+                //        {
+                //            closetInviteList.Add(reader["OutfitName"].ToString());
+                //            //Debug.WriteLine(reader["OutfitName"].ToString());
+                //        }
+                //    }
+                //}
+
+
             }
 
 
             ViewBag.Message = user;
             ViewBag.Closets = closetsList;
             ViewBag.Outfits = outfitsList;
-            ViewBag.ClosetIdsList = closetIdsList;
+            //ViewBag.InviteClosets = closetInviteList;
+            //ViewBag.InviteOutfits = outfitInviteList;
+            //ViewBag.ClosetIdsList = closetIdsList;
 
             return View();
         }
