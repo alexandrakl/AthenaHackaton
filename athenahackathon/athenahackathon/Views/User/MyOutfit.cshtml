@@ -1,4 +1,4 @@
-
+﻿
 @{
     ViewBag.Title = "MyOutfit";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,27 +9,46 @@
 </head>
 
 <body>
-<h2>MyOutfit</h2>
-
-    <div class="outfit column small-2 medium-3 large-4 columns">
-        <img src="~/Content/hardcodedIMG/tShirtA.jpg" class="thumbnail top" alt="">
-        <img src="~/Content/hardcodedIMG/bottomsA.jpg" class="thumbnail bottom " alt="">
-        <img src="//placehold.it/600x600" class="thumbnail shoe" alt="">
-    </div>
-
-    <div class="outfit column small-2 medium-3 large-4 columns">
-        <img src="~/Content/hardcodedIMG/tShirtB.jpg" class="top thumbnail" alt="">
-        <img src="~/Content/hardcodedIMG/bottomsB.jpg" class="thumbnail bottom" alt="">
-        <img src="//placehold.it/600x600" class="shoe thumbnail" alt="">
-    </div>
-
-    <div class="outfit column small-2 medium-3 large-4 columns">
-        <img src="//placehold.it/600x600" class="top thumbnail" alt="">
-        <img src="//placehold.it/600x600" class="thumbnail bottom" alt="">
-        <img src="//placehold.it/600x600" class="shoe thumbnail" alt="">
+    <div class="row">
+        <h2>MyOutfits   @ViewBag.Message</h2>
     </div>
 
 
+       <div class="row">
+        <a href="#" class="button">Add Outfit</a>
+        <a href="#" class="button">Share</a>
+    </div>
+    <div class="row">
+        <div class="outfit column small-2 medium-3 large-4 columns">
+            <img src="~/Content/hardcodedIMG/tShirtA.jpg" class="thumbnail top" alt="">
+            <img src="~/Content/hardcodedIMG/bottomsA.jpg" class="thumbnail bottom " alt="">
+            <img src="//placehold.it/600x600" class="thumbnail shoe" alt="">
+        </div>
+        <div class="outfit column small-2 medium-3 large-4 columns">
+            <img src="~/Content/hardcodedIMG/tShirtB.jpg" class="top thumbnail" alt="">
+            <img src="~/Content/hardcodedIMG/bottomsB.jpg" class="thumbnail bottom" alt="">
+            <img src="//placehold.it/600x600" class="shoe thumbnail" alt="">
+        </div>
+        <div class="outfit column small-2 medium-3 large-4 columns">
+            <img src="//placehold.it/600x600" class="top thumbnail" alt="">
+            <img src="//placehold.it/600x600" class="thumbnail bottom" alt="">
+            <img src="//placehold.it/600x600" class="shoe thumbnail" alt="">
+        </div>
+
+    </div>
+
+
+
+    <!--
+    @@foreach (var std in ViewBag.clothesListOutfit)
+    {
+    @@std
+
+    }
+
+
+
+        
     <div class="outfit column small-2 medium-3 large-4 columns">
         <img src="//placehold.it/600x600" class="top thumbnail" alt="">
         <img src="//placehold.it/600x600" class="bottom thumbnail" alt="">
@@ -45,6 +64,11 @@
         <img src="//placehold.it/600x600" class="bottom thumbnail" alt="">
         <img src="//placehold.it/600x600" class="shoe thumbnail" alt="">
     </div>
+        -->
+
+ 
+
+
 
 
 

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using athenahackathon.Models;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,6 +29,7 @@ namespace athenahackathon.Controllers
             string userId = string.Empty;
             string closetName = string.Empty;
             List<string> closetsList = new List<string>();
+            List<int> closetIdsList = new List<int>();
             List<string> outfitsList = new List<string>();
 
             Debug.WriteLine(user);
@@ -54,6 +58,7 @@ namespace athenahackathon.Controllers
                         while (reader.Read())
                         {
                             closetsList.Add(reader["ClosetName"].ToString());
+                            closetIdsList.Add(Convert.ToInt32(reader["ClosetId"]));
                             //Debug.WriteLine(reader["ClosetName"].ToString());
                         }
                     }
@@ -77,13 +82,41 @@ namespace athenahackathon.Controllers
                 }
             }
 
-            
+
+            ViewBag.Message = user;
+            ViewBag.Closets = closetsList;
+            ViewBag.Outfits = outfitsList;
+            ViewBag.ClosetIdsList = closetIdsList;
+
             return View();
         }
 
+        public ActionResult SimpleInterest()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult CalculateSimpleInterestResult()
+        //{
+        //    decimal principle = Convert.ToDecimal(Request["txtAmount"].ToString());
+        //    decimal rate = Convert.ToDecimal(Request["txtRate"].ToString());
+
+        //    decimal simpleInteresrt = (principle * rate) / 100;
+
+        //    StringBuilder sbInterest = new StringBuilder();
+        //    sbInterest.Append("<b>Amount :</b> " + principle + "<br/>");
+        //    sbInterest.Append("<b>Rate :</b> " + rate + "<br/>");
+        //    return Content(sbInterest.ToString());
+        //}
+
+
         // GET: My Closet Pass in User Id
         [AllowAnonymous]
-        public ActionResult MyCloset(int closetId) {
+        public ActionResult MyCloset(string closetIdString)
+        {
+            string temp = "temprary string";
+            int closetId = Convert.ToInt32(closetIdString);
             List<string> clothesList = new List<string>();
 
             using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString))
@@ -98,22 +131,44 @@ namespace athenahackathon.Controllers
                     {
                         while (reader.Read())
                         {
-                            Debug.WriteLine(reader["ClothesName"].ToString());
-                           //clothesList.Add(reader["ClothesName"].ToString());
+                            //Debug.WriteLine(reader["ClothesName"].ToString());
+                            clothesList.Add(reader["ClothesName"].ToString());
                         }
+
+                        clothesList.Add(temp);
                     }
                 }
 
             }
-                return View();
+
+            ViewBag.Message = "Displaying smth in my closet";
+            ViewBag.Clothes = clothesList;
+            return View();
         }
 
-         // GET: My Outfit pass in outfit id
+
+        //
+        // POST: /MyAccount
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult MyCloset(string returnUrl)
+        //{
+        //    return RedirectToAction("MyCloset", "User");
+
+        //}
+
+
+
+        // GET: My Outfit pass in outfit id
         [AllowAnonymous]
-        public ActionResult MyOutfit(int outfitId)
+        public ActionResult MyOutfit(string outfitIdString)
         {
+
+            int outfitId = Convert.ToInt32(outfitIdString);
             List<string> clothesListOutfit = new List<string>();
-            string clothesId = string.Empty;
+            string clothesIdString = string.Empty;
+            int clothesId;
 
             using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString))
             {
@@ -128,29 +183,36 @@ namespace athenahackathon.Controllers
                         while (reader.Read())
                         {
                             Debug.WriteLine(reader["ClothesId"].ToString());
-                            clothesId = reader["ClothesId"].ToString();
+                            clothesIdString = reader["ClothesId"].ToString();
+                            clothesId = Convert.ToInt32(clothesIdString);
                             //clothesList.Add(reader["ClothesName"].ToString());
                         }
                     }
                 }
 
-                StringBuilder clothesoutfitstring = new StringBuilder();
-                clothesoutfit.Append("Select [ClothesName] from [dbo].[Clothes] where [ClothesId]='" + clothesId + "'");
+                clothesListOutfit.Add("temp");
+                //    StringBuilder clothesoutfitstring = new StringBuilder();
+                //    clothesoutfit.Append("Select [ClothesName] from [dbo].[Clothes] where [ClothesId]='" + clothesIdString + "'");
 
-                using (SqlCommand command = new SqlCommand(clothesoutfitstring.ToString(), connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Debug.WriteLine(reader["ClothesName"].ToString());
-                            clothesListOutfit.Add(reader["ClothesName"].ToString());
-                        }
-                    }
-                }
+                //    using (SqlCommand command = new SqlCommand(clothesoutfitstring.ToString(), connection))
+                //    {
+                //        using (SqlDataReader reader = command.ExecuteReader())
+                //        {
+                //            while (reader.Read())
+                //            {
+                //                Debug.WriteLine(reader["ClothesName"].ToString());
+                //                clothesListOutfit.Add(reader["ClothesName"].ToString());
+                //            }
+                //            clothesListOutfit.Add("temp");
+                //        }
+                //    }
 
+                //}
             }
-            return View();
+            ViewBag.Message = " Inside my outfit view";
+                ViewBag.ClothesOutfit = clothesListOutfit;
+                return View();
+            
         }
 
         // GET: My Invite -> pass in outfit id and closet Id (one is always null, also receiver Id get from view of the owner user
