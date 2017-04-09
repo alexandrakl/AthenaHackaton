@@ -21,6 +21,15 @@ namespace athenahackathon.Controllers
         {
             return View();
         }
+
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult Mycloset()
+        {
+            return View();
+        }
+
+
     }
 
   
