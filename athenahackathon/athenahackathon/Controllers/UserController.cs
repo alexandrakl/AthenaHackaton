@@ -89,36 +89,36 @@ namespace athenahackathon.Controllers
 
 
                 //get outfitsInvite(userId)
-                //StringBuilder outfitInvitestring = new StringBuilder();
-                //outfitInvitestring.Append("Select [OutfitId] from [dbo].[Invite] where [ReceiverId]='" + userId + "'");
+                StringBuilder outfitInvitestring = new StringBuilder();
+                outfitInvitestring.Append("Select [OutfitId] from [dbo].[Invite] where [ReceiverId]='" + userId + "'");
 
-                //using (SqlCommand command = new SqlCommand(outfitstring.ToString(), connection))
-                //{
-                //    using (SqlDataReader reader = command.ExecuteReader())
-                //    {
-                //        while (reader.Read())
-                //        {
-                //            outfitInviteList.Add(reader["OutfitName"].ToString());
-                //            //Debug.WriteLine(reader["OutfitName"].ToString());
-                //        }
-                //    }
-                //}
+                using (SqlCommand command = new SqlCommand(outfitstring.ToString(), connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            outfitInviteList.Add(reader["OutfitId"].ToString());
+                            //Debug.WriteLine(reader["OutfitName"].ToString());
+                        }
+                    }
+                }
 
-                ////get outfitsInvite(userId)
-                //StringBuilder closetInvitestring = new StringBuilder();
-                //closetInvitestring.Append("Select [ClosetId] from [dbo].[Invite] where [ReceiverId]='" + userId + "'");
+                //get outfitsInvite(userId)
+                StringBuilder closetInvitestring = new StringBuilder();
+                closetInvitestring.Append("Select [ClosetId] from [dbo].[Invite] where [ReceiverId]='" + userId + "'");
 
-                //using (SqlCommand command = new SqlCommand(closetInvitestring.ToString(), connection))
-                //{
-                //    using (SqlDataReader reader = command.ExecuteReader())
-                //    {
-                //        while (reader.Read())
-                //        {
-                //            closetInviteList.Add(reader["OutfitName"].ToString());
-                //            //Debug.WriteLine(reader["OutfitName"].ToString());
-                //        }
-                //    }
-                //}
+                using (SqlCommand command = new SqlCommand(closetInvitestring.ToString(), connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            closetInviteList.Add(reader["ClosetId"].ToString());
+                            //Debug.WriteLine(reader["OutfitName"].ToString());
+                        }
+                    }
+                }
 
 
             }
@@ -127,9 +127,9 @@ namespace athenahackathon.Controllers
             ViewBag.Message = user;
             ViewBag.Closets = closetsList;
             ViewBag.Outfits = outfitsList;
-            //ViewBag.InviteClosets = closetInviteList;
-            //ViewBag.InviteOutfits = outfitInviteList;
-            //ViewBag.ClosetIdsList = closetIdsList;
+            ViewBag.InviteClosets = closetInviteList;
+            ViewBag.InviteOutfits = outfitInviteList;
+            ViewBag.ClosetIdsList = closetIdsList;
 
             return View();
         }
@@ -156,7 +156,7 @@ namespace athenahackathon.Controllers
 
         // GET: My Closet Pass in User Id
         [AllowAnonymous]
-        public ActionResult MyCloset(string closetIdString)
+        public ActionResult MyCloset(string closetIdString = "1")
         {
             string temp = "temprary string";
             int closetId = 1;
@@ -304,7 +304,7 @@ namespace athenahackathon.Controllers
                     {
                         while (reader.Read())
                         {
-                            if (reader["ClosetId"] == null)
+                            if (reader["ClosetId"] == DBNull.Value)
                             {
                                 Debug.WriteLine(reader["OutfitId"].ToString());
                                 outfitIdsList.Add(reader["OutfitId"].ToString());
