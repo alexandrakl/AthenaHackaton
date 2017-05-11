@@ -1,31 +1,54 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+<head>
+</head>
+<style>
+    html {
+        font-family: 'Segoe Script';
+    }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    body {
+        color: white;
+        background-color: white;
+        background-image: url("http://manthoor.com/wp-content/uploads/2015/08/large-wooden-closet-design-combined-with-brown-wall-paint-also-cream-area-rug-design.jpg");
+        text-align: center;
+        background-size: contain;
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    .center {
+        left: 0;
+        line-height: 200px;
+        margin: auto;
+        margin-top: -100px;
+        margin-bottom: 10px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+
+    h1 {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.4);
+        font-size: 40px;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    a.button {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 25px;
+    }
+
+        a.button:hover {
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+</style>
+<body>
+
+    <div class="center">
+        <h1>Friends help friends look fashionable</h1>
+        <a href="/Account/Login" class="button">Get Started</a>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</body>

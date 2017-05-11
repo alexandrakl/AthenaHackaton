@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "MyInvite";
+}
+
+<h2>MyInvite</h2>
+
+
+<h1>Closets</h1>
+
+<div class="row medium-up-7">
+    @foreach (var std in ViewBag.Closets)
+    {
+        <div class="column large-4 columns">
+
+            <button onclick="location.href = '/User/MyCloset?closetIdString=@std'">@std</button>
+        </div>
+
+    }
+</div>
+
+<h1>
+ Outfits
+</h1>
+<div class="row medium-up-7">
+    @foreach (var std in ViewBag.Outfits)
+    {
+        <div class="column large-4 columns">
+
+            <button>@std</button>
+        </div>
+
+    }
+</div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,209 @@
+﻿
+@{
+    ViewBag.Title = "MyAccount";
+}
+
+<div class="row small-12">
+    <h2>Welcome to your Virtual Closet @ViewBag.Message</h2>
+</div>
+
+<div class="row">
+    <div class="small-12">
+        <h3>My Closets</h3>
+    </div>
+    <div id="MyClosets">
+        @using (Ajax.BeginForm("MyCloset", "User",
+                        new AjaxOptions { UpdateTargetId = "test" }))
+        {
+            <div id="test">
+                @foreach (var std in ViewBag.Closets)
+                {
+                    <button>@std</button>
+                }
+            </div>
+        }
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="small-12">
+        <h3>My Outfits</h3>
+    </div>
+    <div id="MyOutfits">
+        @using (Ajax.BeginForm("MyOutfit", "User",
+                                new AjaxOptions { UpdateTargetId = "outfittest" }))
+        {
+            <div id="outfittest">
+                @foreach (var std in ViewBag.Outfits)
+                {
+                    <button>@std</button>
+                }
+            </div>
+        }
+    </div> 
+</div>
+
+
+<div class="row">
+    <div class="small-12">
+        <h3>My Invites</h3>
+    </div>
+    <div id="MyOutfits">
+        @using (Ajax.BeginForm("MyInvite", "User",
+                                    new AjaxOptions { UpdateTargetId = "outfittest" }))
+        {
+            <div id="outfittest">
+                @foreach (var std in ViewBag.InviteOutfits)
+                {
+                    <button>@std</button>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row">
+
+    <div id="MyOutfits">
+        @using (Ajax.BeginForm("MyInvite", "User",
+                                        new AjaxOptions { UpdateTargetId = "outfittest" }))
+        {
+            <div id="outfittest">
+                @foreach (var std in ViewBag.InviteClosets)
+                {
+                    <button>@std</button>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="row">
+    <a href="#" class="button">Add Closet</a>
+    <a href="#" class="button">Add Outfit</a>
+</div>
+
+
+
+
+
+
+<!--<li>@@Html.ActionLink("MyCloset", "MyCloset", "User")</li>
+
+    
+<div id="MyClosetsIds">
+    @@using (Ajax.BeginForm("MyCloset", "User",
+    new AjaxOptions { UpdateTargetId = "test2" }))
+    {
+    <div id="test2"></div>
+    <ol>
+        @@foreach (var std in ViewBag.ClosetIdsList)
+        {
+        <li>
+
+            <button>@@std</button>
+        </li>
+        }
+    </ol>
+    }
+</div>
+
+
+    
+<p>Closet Ids List</p>
+<ul>
+    @@foreach (var std in ViewBag.ClosetIdsList)
+    {
+        <li>
+            @@using (Html.BeginForm("MyCloset", "User", FormMethod.Post))
+            {
+                @@Html.AntiForgeryToken()
+                <input type="text" id="@@std">
+                <input type="submit" value="@@std" class="btn btn-success btn-lg" />
+            }
+
+        </li>
+    }
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li>
+            @@Html.Label("Amount")
+            @@Html.TextBox("txtAmount")
+        </li>
+
+    <p>Closets</p>
+
+    @@foreach (var std in ViewBag.Closets)
+    {
+        <fieldset>
+            @@using (Ajax.BeginForm("MyCloset", "User",
+                                                        new AjaxOptions { UpdateTargetId = "account" }))
+            {
+                <div id="account">
+
+                </div>
+            }
+            <ol>
+                <li>
+                    <input type="button" class="a" value="@@std" />
+                </li>
+            </ol>
+            
+      </fieldset>
+    }
+
+
+
+
+    <h2>Calculate Simple Interest</h2>
+
+
+
+
+    <legend>Calculate Simple Interest</legend>
+
+
+
+    <input type="button" value="Detail" onclick="location.href='@@Url.Action("MyCloset", "User")?id=' + @@std" />
+    
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @@using (Html.BeginForm("MyCloset", "User", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @@class = "form-horizontal", role = "form" }))
+            {
+                @@Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Open My closet" class="btn btn-default" />
+
+                    </div>
+                </div>
+            }
+             </section>
+         </div>
+    </div>
+    -->
+
+
+
+
+
+
+                
+
+             
