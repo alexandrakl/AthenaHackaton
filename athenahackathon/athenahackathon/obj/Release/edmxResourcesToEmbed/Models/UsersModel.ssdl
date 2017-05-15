@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyArkaDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MyArkaDatabase.dbo.AspNetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="PasswordHash" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="256" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordHash" Type="nchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserName" Type="nchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MyArkaDatabaseModelStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetUsers].[Id] AS [Id], 
+    [AspNetUsers].[Email] AS [Email], 
+    [AspNetUsers].[PasswordHash] AS [PasswordHash], 
+    [AspNetUsers].[UserName] AS [UserName]
+    FROM [dbo].[AspNetUsers] AS [AspNetUsers]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
