@@ -4,61 +4,104 @@
     ViewBag.Title = "Log in";
 }
 
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+<style>
+       body {
+        background-color: floralwhite;
+    }
+    .button {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: white;
+        font-size: 20px;
+        margin-top: 25px;
+        margin-right:15px;
+    }
+
+    .button:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .am {
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+    <div class="row am">
+        <div class="large-12 columns ">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                @Html.AntiForgeryToken()
-                <h2>Log In to your Virtual Closet</h2>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "large-12 columns  control-label" })
+                        <div class="large-12 columns ">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "large-12 columns form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "large-12 columns text-danger" })
                         </div>
                     </div>
-                </div>
-                <!--
-                <div class="submitButton">
-                    <a href="~/UserAccount/MyAccount.cshtml" class="button">Log In</a>
-                </div>
-                    -->
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-        
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "large-12 columns  control-label" })
+                        <div class="large-12 columns ">
+                            @Html.PasswordFor(m => m.Password, new { @class = "large-12 columns form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "large-12 columns text-danger" })
+                        </div>
                     </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
 
-</div>
+                    <div class="row">
+                        <div class="large-12 columns" align="right"><input type="submit" value="Log in" class="btn btn-default button" /></div>
+                    </div>
+
+                }
+            </section>
+        </div>
+    </div>
+</body>
+   
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+
+<!--
+<div class="submitButton">
+    <a href="~/UserAccount/MyAccount.cshtml" class="button">Log In</a>
+</div>
+    -->
+
+
+@* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>
+
+
+
+    <div class="form-group">
+        <div class="large-12 columns ">
+            <div class="checkbox">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <div class="form-group row">
+            <div class="large-12 columns ">
+                <input type="submit" value="Log in" class="btn btn-default button" />
+
+            </div>
+        </div>
+
+
+*@

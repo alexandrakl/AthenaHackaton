@@ -1,8 +1,6 @@
 @{
     ViewBag.Title = "About";
 }
-
-<head></head>
 <style>
    html{
        font-family: 'Segoe Script';
@@ -15,23 +13,16 @@
         background-size: contain;
     }
     .center {
-        
-       /* line-height: 200px;*/
-        /*margin: auto;*/
-        /*margin-top: -100px;
-        margin-bottom: 10px;*/
         position: absolute;
-        
         align-content: center;
-        //width: 100%;
     }
 
     h1 {
         color: white;
-        font-size: 25px;
+        font-size: 35px;
         align-content: center;
-        margin: 50px;
-        margin-top: 150px;
+        margin: 40px;
+        margin-top: 140px;
         text-align: center;
     }
 
@@ -40,8 +31,8 @@
         height: 600px;
         width: 600px;
         line-height: 600px;
-        -moz-border-radius: 300px; /* or 50% */
-        border-radius: 300px; /* or 50% */
+        -moz-border-radius: 300px;
+        border-radius: 300px; 
         background-color: rgba(0, 0, 0, 0.7);
         align-content: center;
         font-size: 2em;
@@ -50,13 +41,34 @@
         margin: -300px 0 0 -300px;
     }
 
-
 </style>
 <body>
-   
-        <!--<h2>ViewBag.Title.</h2>-->
-        <!--<h3>ViewBag.Message</h3>-->
     <span class="center">
-            <h1>Arka Coding Challenge</h1>
+        <h1>Arka Coding Challenge</h1>
+        <ul class="no-bullet">
+            <li>
+                A UI with an order form for customers
+            </li>
+            <li>
+                UI with 2 admin features 
+                <ul>
+                    <li>
+                        Feature 1: Assign a manufacturer name to that order
+                    </li>
+                    <li>
+                        Feature 2: Update the order status to “order processed”
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Server(s) for your UI’s
+            </li>
+            <li>
+                A database that persists the orders
+            </li>
+            <li>
+                Styling so your UI’s aren’t complete eyesores
+            </li>
+        </ul>
     </span>
 </body>

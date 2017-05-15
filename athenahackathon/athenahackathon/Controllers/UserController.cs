@@ -39,6 +39,7 @@ namespace MyArkaProject.Controllers
             using (SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["UserConnection"].ConnectionString))
             {
                 connection.Open();
+                //Debug.WriteLine(user);
                 StringBuilder sb = new StringBuilder();
                 sb.Append("Select TOP 1 [Id] from [dbo].[AspNetUsers] where [Email]='" + user + "'");
 
@@ -48,12 +49,17 @@ namespace MyArkaProject.Controllers
                     {
                         while (reader.Read())
                         {
+                            Debug.WriteLine(user);
+                            Debug.WriteLine(reader["Id"].ToString());
                             userId = reader["Id"].ToString();
+                            
                         }
                     }
                 }
 
             }
+
+       
 
             //    // get closets(userId)
             //    StringBuilder closetstring = new StringBuilder();
