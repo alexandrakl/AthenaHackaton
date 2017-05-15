@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="150954678ff94e798fab8938c4da28d3" Name="Diagram1">
-        <EntityTypeShape EntityType="MyArkaDatabaseModel.AspNetUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyArkaDatabaseModel.AspNetUser" Width="1.5" PointX="1.75" PointY="1" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

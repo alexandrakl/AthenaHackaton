@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using athenahackathon.Models;
+using MyArkaProject.Models;
 
-namespace athenahackathon.Controllers
+namespace MyArkaProject.Controllers
 {
     public class AspNetUsersController : Controller
     {
@@ -53,7 +53,15 @@ namespace athenahackathon.Controllers
             if (ModelState.IsValid)
             {
                 db.AspNetUsers.Add(aspNetUser);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException upEx)
+                {
+                    return View(aspNetUser);
+                }
+                    //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 

@@ -1,4 +1,4 @@
-﻿using athenahackathon.Models;
+﻿using MyArkaProject.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace athenahackathon.Controllers
+namespace MyArkaProject.Controllers
 {
     public class UserController : Controller
     {

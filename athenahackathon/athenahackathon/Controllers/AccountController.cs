@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using athenahackathon.Models;
+using MyArkaProject.Models;
 
-namespace athenahackathon.Controllers
+namespace MyArkaProject.Controllers
 {
     [Authorize]
     public class AccountController : Controller

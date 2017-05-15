@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Optimization;
 
-namespace athenahackathon
+namespace MyArkaProject
 {
     public class BundleConfig
     {

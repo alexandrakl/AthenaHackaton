@@ -1,6 +1,6 @@
 using System.Web.Optimization;
 
-namespace athenahackathon
+namespace MyArkaProject
 {
     public static class Foundation
     {

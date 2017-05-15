@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(athenahackathon.Startup))]
-namespace athenahackathon
+[assembly: OwinStartupAttribute(typeof(MyArkaProject.Startup))]
+namespace MyArkaProject
 {
     public partial class Startup
     {

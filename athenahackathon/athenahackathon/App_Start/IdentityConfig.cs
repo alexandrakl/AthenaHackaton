@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using athenahackathon.Models;
+using MyArkaProject.Models;
 
-namespace athenahackathon
+namespace MyArkaProject
 {
     public class EmailService : IIdentityMessageService
     {

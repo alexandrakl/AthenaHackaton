@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace athenahackathon.Models
+namespace MyArkaProject.Models
 {
     using System;
     using System.Collections.Generic;

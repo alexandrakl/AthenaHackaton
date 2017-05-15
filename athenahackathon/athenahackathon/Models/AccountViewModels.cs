@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace athenahackathon.Models
+namespace MyArkaProject.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
