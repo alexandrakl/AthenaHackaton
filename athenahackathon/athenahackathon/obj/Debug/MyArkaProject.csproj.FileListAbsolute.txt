@@ -79,3 +79,4 @@ C:\Users\Alexandra\Desktop\myproject\AthenaHackaton\athenahackathon\athenahackat
 C:\Users\Alexandra\Desktop\myproject\AthenaHackaton\athenahackathon\athenahackathon\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Alexandra\Desktop\myproject\AthenaHackaton\athenahackathon\athenahackathon\obj\Debug\athenahackathon.dll
 C:\Users\Alexandra\Desktop\myproject\AthenaHackaton\athenahackathon\athenahackathon\obj\Debug\athenahackathon.pdb
+C:\Users\Alexandra\Desktop\myproject\AthenaHackaton\athenahackathon\athenahackathon\obj\Debug\MyArkaProject.csprojResolveAssemblyReference.cache

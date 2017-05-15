@@ -3,4 +3,151 @@
     ViewBag.Title = "MyAccount";
 }
 
-<h1>My ARKA Orders</h1>
+
+<style>
+    html {
+        font-family: 'Segoe Script';
+    }
+
+    body {
+        /*color: rgba(255, 255, 255, 0.4);*/
+        color: bisque;
+        background-color: floralwhite;
+        text-align: center;
+        background-size: contain;
+    }
+
+    .center {
+        position: absolute;
+        align-content: center;
+         color: bisque;
+         padding: 30px;
+        
+    }
+
+    h3 {
+        color: white;
+        font-size: 25px;
+        align-content: center;
+        margin: 20px;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    span {
+        display: block;
+        height: 600px;
+        width: 600px;
+        line-height: 600px;
+        -moz-border-radius: 300px; /* or 50% */
+        border-radius: 300px; /* or 50% */
+        background-color: rgba(0, 0, 0, 0.7);
+        align-content: center;
+        font-size: 2em;
+        top: 50%;
+        left: 50%;
+        margin: -300px 0 0 -300px;
+    }
+
+    myform {
+    
+    }
+
+</style>
+<body>
+    <span class="center">
+        <div class="row">
+            <div class="large-12 columns">
+                <h3>My ARKA Order Form</h3>
+            </div>
+        </div>
+        <form>
+           
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>
+                        Input Label
+                        <input type="text" placeholder="Product Name" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>
+                        Input Label
+                        <input type="text" placeholder="Quantity" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>
+                        Input Label
+                        <input type="text" placeholder="Shipping Address" />
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="row ">
+                <label>Input Label</label>
+                <div class="large-4 columns">
+                    <input type="text" placeholder="City" />
+                </div>
+                <div class="large-2 columns">
+                    <input type="text" placeholder="State" />
+                </div>
+                <div class="large-3 columns">
+                    <input type="text" placeholder="ZipCode" />
+                </div>
+                <div class="large-3 columns">
+                    <input type="text" placeholder="Country" />
+                </div>
+                @*<div class="small-3 columns">
+                        <span class="postfix">small 2 columns</span>
+                    </div>*@
+            </div>
+
+            @*<div class="row">
+                    <div class="large-6 columns">
+                        <label>Choose Your Favorite</label>
+                        <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
+                        <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+                    </div>
+                    <div class="large-6 columns">
+                        <label>Check these out</label>
+                        <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+                        <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+                    </div>
+                </div>*@
+            @*<div class="row">
+                    <div class="large-12 columns">
+                        <label>
+                            Textarea Label
+                            <textarea placeholder="small-12.columns"></textarea>
+                        </label>
+                    </div>
+                </div>
+            *@
+
+
+            @* Code for making a dropdown
+
+                    <div class="row">
+                    <div class="large-12 columns">
+                        <label>
+                            Select Box
+                            <select>
+                                <option value="husker">Husker</option>
+                                <option value="starbuck">Starbuck</option>
+                                <option value="hotdog">Hot Dog</option>
+                                <option value="apollo">Apollo</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>*@
+        </form>
+    </span>
+</body>
